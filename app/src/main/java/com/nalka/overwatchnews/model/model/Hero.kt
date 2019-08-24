@@ -16,9 +16,7 @@ data class Hero(
     var shields: Int? = 50,
 
     var forwardMovementSpeed: Float? = 0.0f,
-    var backwardsMovementSpeed: Float? = 0.0f,
-
-    var ultimatePassiveChargeRate: Double? = 0.0
+    var backwardsMovementSpeed: Float? = 0.0f
 ) {
 
 

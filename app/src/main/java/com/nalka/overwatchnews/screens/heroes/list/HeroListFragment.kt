@@ -1,9 +1,6 @@
 package com.nalka.overwatchnews.screens.heroes.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -15,20 +12,13 @@ import com.nalka.overwatchnews.screens.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_hero_list.*
 
 class HeroListFragment : BaseFragment() {
+
     private lateinit var viewModel: HeroListFragmentVM
 
     private var adapter: HeroListAdapter? = null
     private val heroListObserver: Observer<List<Hero>> = Observer {
         heroList ->
         displayHeroes(heroList)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_hero_list, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -62,5 +52,9 @@ class HeroListFragment : BaseFragment() {
     private fun displayHeroes(heroList: List<Hero>) {
         adapter?.heroList = heroList
         adapter?.notifyDataSetChanged()
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.fragment_hero_list
     }
 }

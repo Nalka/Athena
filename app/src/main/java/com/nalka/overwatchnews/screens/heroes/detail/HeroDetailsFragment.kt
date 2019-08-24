@@ -1,9 +1,6 @@
 package com.nalka.overwatchnews.screens.heroes.detail
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.nalka.overwatchnews.R
@@ -21,14 +18,6 @@ class HeroDetailsFragment : BaseFragment() {
         initViews(hero)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_hero_details, container, false)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -43,11 +32,15 @@ class HeroDetailsFragment : BaseFragment() {
     }
 
     private fun getHeroId(): Long {
-        return HeroDetailsFragmentArgs.fromBundle(arguments).heroId.toLong()
+        return HeroDetailsFragmentArgs.fromBundle(arguments!!).heroId.toLong()
     }
 
     private fun initViews(hero: Hero) {
         tv_hero_name.text = hero.name
         iv_hero_icon.loadDrawable(hero.iconId)
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.fragment_hero_details
     }
 }

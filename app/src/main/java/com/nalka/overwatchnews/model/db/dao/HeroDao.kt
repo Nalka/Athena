@@ -14,7 +14,7 @@ interface HeroDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(hero: Hero)
 
-    @Query("SELECT id, name, iconId FROM hero")
+    @Query("SELECT id, name, iconId FROM hero ORDER BY name ASC")
     fun getHeroListLight(): LiveData<List<Hero>>
 
     @Query("SELECT * FROM hero")

@@ -1,6 +1,7 @@
 package com.nalka.overwatchnews
 
 import android.app.Application
+import com.facebook.stetho.Stetho
 import com.nalka.overwatchnews.di.component.AppComponent
 import com.nalka.overwatchnews.di.component.DaggerAppComponent
 import com.nalka.overwatchnews.di.module.AppModule
@@ -18,6 +19,8 @@ class App : Application() {
             .appModule(AppModule(this))
             .repositoryModule(RepositoryModule())
             .build()
+
+        Stetho.initializeWithDefaults(this)
 
     }
 

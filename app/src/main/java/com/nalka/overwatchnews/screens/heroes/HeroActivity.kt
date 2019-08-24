@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.nalka.overwatchnews.R
 
 class HeroActivity : AppCompatActivity() {
@@ -16,6 +16,6 @@ class HeroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hero)
 
         navigationController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navigationController)
+        setupActionBarWithNavController(navigationController)
     }
 }
